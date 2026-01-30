@@ -38,4 +38,7 @@ This project was built to demonstrate MongoDB data modeling, advanced update ope
 
 
 ## Project Structure
-
+console-rental-provider/
+backend/
+frontend/
+report/
