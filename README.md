@@ -4,7 +4,6 @@ A full-stack web application for renting video game consoles. Users can browse a
 
 This project was built to demonstrate MongoDB data modeling, advanced update operators, aggregation pipelines, indexing, and a RESTful API integrated with a React frontend.
 
----
 
 ## Tech Stack
 
@@ -20,7 +19,6 @@ This project was built to demonstrate MongoDB data modeling, advanced update ope
 - JWT authentication (jsonwebtoken)
 - Password hashing (bcrypt)
 
----
 
 ## Features
 
@@ -38,7 +36,6 @@ This project was built to demonstrate MongoDB data modeling, advanced update ope
   - Top consoles by rentals + revenue
   - Monthly revenue summary
 
----
 
 ## Project Structure
 
