@@ -7,7 +7,7 @@ Admin users can manage inventory tags and view analytics dashboards.
 
 This project was built as a final assessment for the **Advanced Databases (NoSQL)** course and focuses on practical usage of **MongoDB data modeling**, **advanced update operators**, **aggregation pipelines**, and a **RESTful API** integrated with a React frontend.
 
----
+
 
 ## Tech Stack
 
@@ -24,7 +24,7 @@ This project was built as a final assessment for the **Advanced Databases (NoSQL
 - JWT authentication (`jsonwebtoken`)
 - Password hashing (`bcrypt`)
 
----
+
 
 ## System Architecture
 
@@ -35,7 +35,7 @@ MongoDB is used as the primary database and is accessed via Mongoose models.
 Authentication is implemented using JWT. After login, a token is stored on the client side and automatically attached to protected requests.  
 Role-based authorization separates **user** and **admin** functionality.
 
----
+
 
 ## Database Design & Data Modeling
 
