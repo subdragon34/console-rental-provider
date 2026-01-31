@@ -1,14 +1,14 @@
 # Console Rental Provider  
 **Full-Stack Web Application (MongoDB / NoSQL)**
 
-A full-stack web application for renting video game consoles.  
-Users can browse available consoles, create rentals, view their rental history, and return or cancel active rentals.  
-Admin users can manage inventory tags and view analytics dashboards.
+Console Rental Provider is a full-stack web application that simulates a real-world video game console rental service.  
+Users can browse consoles, rent them for a selected period, manage their rentals, and return or cancel active rentals.  
+Admin users have additional access to inventory management and analytical dashboards.
 
-This project was built as a final assessment for the **Advanced Databases (NoSQL)** course and focuses on practical usage of **MongoDB data modeling**, **advanced update operators**, **aggregation pipelines**, and a **RESTful API** integrated with a React frontend.
+This project was developed as a **final assessment for the Advanced Databases (NoSQL) course** and focuses on practical usage of MongoDB, including data modeling, aggregation pipelines, indexing, and RESTful API design.
 
-
-
+ 
+ 
 ## Tech Stack
 
 ### Frontend
@@ -28,32 +28,55 @@ This project was built as a final assessment for the **Advanced Databases (NoSQL
 
 ## System Architecture
 
-The frontend communicates with the backend through REST API endpoints using Axios.  
-The backend handles authentication, authorization, business logic, and database operations.  
+The application follows a classic client–server architecture.
+
+The **frontend** communicates with the **backend** through REST API endpoints using Axios.  
+The backend handles authentication, authorization, business logic, and database access.  
 MongoDB is used as the primary database and is accessed via Mongoose models.
 
-Authentication is implemented using JWT. After login, a token is stored on the client side and automatically attached to protected requests.  
-Role-based authorization separates **user** and **admin** functionality.
+Authentication is implemented using JWT. After login, the token is stored on the client side and automatically attached to protected API requests. Role-based authorization is used to separate user and admin functionality.
+
+---
+
+## Core Use Cases
+
+The application supports realistic rental workflows, including:
+
+- User registration and login  
+- Browsing available consoles  
+- Renting a console using start and end dates  
+- Automatic price calculation  
+- Cancelling rentals (soft delete)  
+- Returning consoles with late-fee calculation  
+- Admin-only inventory tagging  
+- Admin analytics for revenue and demand  
+
+These use cases guided both the API design and the database schema.
 
 
 
 ## Database Design & Data Modeling
 
-The application uses multiple MongoDB collections and combines **embedded** and **referenced** models depending on the use case.
+The database uses multiple collections and combines **embedded** and **referenced** data models based on access patterns.
+
+### Collections Used
+- Users
+- Consoles
+- Rentals
 
 ### Embedded Documents
 - `specs` inside **Console**  
   Stores console-specific information such as storage or edition.
 - `returnLog` inside **Rental**  
-  Stores return metadata (return date, late days, fine).
+  Stores return metadata such as return date, late days, and fine.
 
-Embedding was chosen to keep tightly related data in a single document and avoid unnecessary joins.
+Embedding was chosen for tightly related data that is usually accessed together.
 
 ### Referenced Documents
 - **Rental → User** (`userId`)
 - **Rental → Console** (`consoleId`)
 
-Referencing avoids duplication and allows flexible analytics across users, rentals, and consoles.
+Referencing avoids duplication and allows flexible analytics across collections.
 
 Example:
 ```json
